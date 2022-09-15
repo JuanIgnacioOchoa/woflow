@@ -41,7 +41,9 @@ def main():
                 #loop for all the child nodes of each parent id
                 for i in d['child_node_ids']:
                     #add id to our tmp_ids for next ids later
-                    tmp_ids.add(i)
+                    #check if node was not already visited, avoid cycling
+                    if i not in unique_ids:
+                        tmp_ids.add(i)
                     #add to our set of unique ids
                     unique_ids.add(i)
                     #initialize hash in 0 if needed and increment by one
